@@ -6,7 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 @Entity
-public class Produto {
+public class Produto 
+{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,35 +17,43 @@ public class Produto {
     private int estoque;
 
     // Getters e Setters
-    public Long getId() {
+    public Long getId() 
+    {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Long id) 
+    {
         this.id = id;
     }
 
-    public String getNome() {
+    public String getNome() 
+    {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) 
+    {
         this.nome = nome;
     }
 
-    public double getPreco() {
+    public double getPreco() 
+    {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(double preco) 
+    {
         this.preco = preco;
     }
 
-    public int getEstoque() {
+    public int getEstoque() 
+    {
         return estoque;
     }
 
-    public void setEstoque(int estoque) {
+    public void setEstoque(int estoque) 
+    {
         this.estoque = estoque;
     }
 }

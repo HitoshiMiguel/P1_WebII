@@ -16,21 +16,26 @@ public class UsuarioController {
 
     // Retorna todos os usuários
     @GetMapping
-    public List<Usuario> getAllUsuarios() {
+    public List<Usuario> getAllUsuarios() 
+    {
         return usuarioRepository.findAll();
     }
 
     // Cria um novo usuário com validação
     @PostMapping
-    public Usuario createUsuario(@RequestBody Usuario usuario) {
+    public Usuario createUsuario(@RequestBody Usuario usuario) 
+    {
         // Validação dos dados de entrada
-        if (usuario.getNome().length() < 3) {
+        if (usuario.getNome().length() < 3) 
+        {
             throw new IllegalArgumentException("O nome do usuário deve ter pelo menos 3 caracteres.");
         }
-        if (usuario.getEmail() == null || !usuario.getEmail().contains("@")) {
+        if (usuario.getEmail() == null || !usuario.getEmail().contains("@")) 
+        {
             throw new IllegalArgumentException("O e-mail do usuário é inválido.");
         }
-        if (usuario.getSenha() == null || usuario.getSenha().length() < 6) {
+        if (usuario.getSenha() == null || usuario.getSenha().length() < 6) 
+        {
             throw new IllegalArgumentException("A senha do usuário deve ter pelo menos 6 caracteres.");
         }
 
@@ -39,21 +44,26 @@ public class UsuarioController {
 
     // Retorna um usuário específico pelo ID
     @GetMapping("/{id}")
-    public Usuario getUsuarioById(@PathVariable Long id) {
+    public Usuario getUsuarioById(@PathVariable Long id) 
+    {
         return usuarioRepository.findById(id).orElse(null);  // Retorna null se o usuário não for encontrado
     }
 
     // Atualiza um usuário existente com validação
     @PutMapping("/{id}")
-    public Usuario updateUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+    public Usuario updateUsuario(@PathVariable Long id, @RequestBody Usuario usuario) 
+    {
         // Validação dos dados de entrada
-        if (usuario.getNome().length() < 3) {
+        if (usuario.getNome().length() < 3) 
+        {
             throw new IllegalArgumentException("O nome do usuário deve ter pelo menos 3 caracteres.");
         }
-        if (usuario.getEmail() == null || !usuario.getEmail().contains("@")) {
+        if (usuario.getEmail() == null || !usuario.getEmail().contains("@")) 
+        {
             throw new IllegalArgumentException("O e-mail do usuário é inválido.");
         }
-        if (usuario.getSenha() == null || usuario.getSenha().length() < 6) {
+        if (usuario.getSenha() == null || usuario.getSenha().length() < 6) 
+        {
             throw new IllegalArgumentException("A senha do usuário deve ter pelo menos 6 caracteres.");
         }
 
@@ -63,7 +73,8 @@ public class UsuarioController {
 
     // Exclui um usuário pelo ID
     @DeleteMapping("/{id}")
-    public void deleteUsuario(@PathVariable Long id) {
+    public void deleteUsuario(@PathVariable Long id) 
+    {
         usuarioRepository.deleteById(id);
     }
 }
